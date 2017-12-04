@@ -1,43 +1,40 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<title>Hello testing!</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-table, th , td {
-  border: 1px solid grey;
-  border-collapse: collapse;
-  padding: 5px;
-}
-table tr:nth-child(odd) {
-  background-color: #f1f1f1;
-}
-table tr:nth-child(even) {
-  background-color: #ffffff;
-}
-</style>
+		<!-- JS jquery -->
+		<script src="js/jquery.min.js"></script>
+		
+		<!-- JS angular -->
+		<script src="js/angular.min.js"></script>
 
+		<!-- JS bootstrap -->
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 
-<script src="js/jquery.min.js"></script>
-
-<script src="js/angular.min.js"></script>
-
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-
-<link rel="stylesheet" type="text/css" href="stylesheet/bootstrap.min.css">
-
+		
+		<!-- CSS bootstrap css -->
+		<link rel="stylesheet" type="text/css" href="stylesheet/bootstrap.min.css">
+		
+		<!-- CSS custom css -->
+		<link rel="stylesheet" type="text/css" href="stylesheet/custom.css">
+		
+		
+	</head>
 <body>
 
 
 <div ng-app="myApp" ng-controller="customersCtrl"> 
 
-<table>
-  <tr ng-repeat="x in names">
-    <td>{{ x.Name }}</td>
-    <td>{{ x.Country }}</td>
-	<td>{{ x.City}}</td>
-  </tr>
-</table>
-
+<div class="container-fluid">
+  <div class="row" ng-repeat="x in names" ng-class-odd="'cssOdd'" ng-class-even="'cssEven'">
+    <div class="col-md-4">{{ x.Name }}</div>
+    <div class="col-md-4">{{ x.Country }}</div>
+	<div class="col-md-4">{{ x.City }}</div>
+  </div>
 </div>
 
 <script>
@@ -50,6 +47,8 @@ table tr:nth-child(even) {
 		});
 });
 </script>
+
+<br/><br/>
 
 I made a change on 12/4
 
