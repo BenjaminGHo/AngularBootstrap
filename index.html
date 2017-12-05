@@ -24,34 +24,37 @@
 		
 		<!-- CSS custom css -->
 		<link rel="stylesheet" type="text/css" href="stylesheet/custom.css">
-		
-		
 	</head>
-<body>
+	
+	<body ng-app="myApp">
 
-	<div ng-app="myApp" ng-controller="customersCtrl"> 
+		<div class="container">
 
-	<div class="container">
-
-		<h1>Angular and Bootstrap Goodness</h1>
-
-		<div class="row" ng-repeat="x in names" ng-class-odd="'cssOdd'" ng-class-even="'cssEven'">
-			<div class="col-md-4">{{ x.Name }}</div>
-			<div class="col-md-4">{{ x.Country }}</div>
-			<div class="col-md-4">{{ x.City }}</div>
+			<h1>Angular and Bootstrap Goodness</h1>
+			
+				<div ng-controller="customersCtrl"> 
+					<div class="row" ng-repeat="x in names" ng-class-odd="'cssOdd'" ng-class-even="'cssEven'">
+						<div class="col-md-4">{{ x.Name }}</div>
+						<div class="col-md-4">{{ x.Country }}</div>
+						<div class="col-md-4">{{ x.City }}</div>
+					</div>
+				</div>
+				
+			<h1>NFL Games This Week</h1>
+			
+				<div ng-controller="nflCtrl"> 
+					<div class="row" ng-repeat="x in teams" ng-class-odd="'cssOdd'" ng-class-even="'cssEven'">
+						<div class="col-md-4">{{ x.homeTeamName }}</div>
+						<div class="col-md-4">{{ x.visitTeamName }}</div>
+					</div>
+				</div>
+			
+			<div id="cssAddText">
+				a change on
+			</div>
+			
 		</div>
-		
-		
-		
-		<div id="cssAddText">
-			a change on
-		</div>
-		
-	</div>
 
 
-
-
-
-</body>
+	</body>
 </html>
