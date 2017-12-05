@@ -1,9 +1,45 @@
+/* Extra-Small devices (phones) */
+@media (min-width: 576px) {
+	.body {
+		max-width: 540px;
+	}
+}
+
+/* Small devices (tablets) */
+@media (min-width: 768px) {
+	.container {
+		max-width: 720px;
+	}
+}
+
+/* Medium devices (desktops) */
+@media (min-width: 992px) {
+	.container {
+		max-width: 970px;
+	}
+}
+
+/* Large devices (desktops) */
+@media (min-width: 1200px){
+	.container {
+		max-width: 1140px;
+	}
+}
+
+
+.row {
+	margin: 10px;
+	padding: 5px;
+	border-radius: 5px;
+	color: #FFF;
+}
+
 .cssOdd {
-  background-color: #EEE;
+  background-color: #0275d8;
 }
 
 .cssEven {
-  background-color: #DDD;
+  background-color: #cdbfe3;
 }
 
 #cssAddText::before{
