@@ -29,7 +29,8 @@
 	<body ng-app="myApp">
 
 		<div class="container">
-
+			
+			<!--
 			<h1>Angular and Bootstrap Goodness</h1>
 			
 				<div ng-controller="customersCtrl"> 
@@ -39,13 +40,16 @@
 						<div class="col-md-4">{{ x.City }}</div>
 					</div>
 				</div>
-				
+			-->
+			
 			<h1>NFL Games This Week</h1>
 			
 				<div ng-controller="nflCtrl"> 
 					<div class="row" ng-repeat="x in teams" ng-class-odd="'cssOdd'" ng-class-even="'cssEven'">
-						<div class="col-md-4">{{ x.homeTeamName }}</div>
-						<div class="col-md-4">{{ x.visitTeamName }}</div>
+						<div class="col-md-3">{{ x.homeTeamName }}</div>
+						<div class="col-md-3">VS</div>
+						<div class="col-md-3">{{ x.visitTeamName }}</div>
+						<div class="col-md-3"><a href="http://www.nfl.com/liveupdate/game-center/{{ x.eid }}/{{ x.eid }}_gtd.json" target="_blank">JSON</a></div>
 					</div>
 				</div>
 			
