@@ -14,6 +14,9 @@
 		<!-- JS bootstrap -->
 		<script src="js/popper.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		
+		<!-- JS custom -->
+		<script src="js/custom.js"></script>
 
 		
 		<!-- CSS bootstrap css -->
@@ -26,32 +29,21 @@
 	</head>
 <body>
 
+	<div ng-app="myApp" ng-controller="customersCtrl"> 
 
-<div ng-app="myApp" ng-controller="customersCtrl"> 
+	<div class="container-fluid">
+	  <div class="row" ng-repeat="x in names" ng-class-odd="'cssOdd'" ng-class-even="'cssEven'">
+		<div class="col-md-4">{{ x.Name }}</div>
+		<div class="col-md-4">{{ x.Country }}</div>
+		<div class="col-md-4">{{ x.City }}</div>
+	  </div>
+	</div>
 
-<div class="container-fluid">
-  <div class="row" ng-repeat="x in names" ng-class-odd="'cssOdd'" ng-class-even="'cssEven'">
-    <div class="col-md-4">{{ x.Name }}</div>
-    <div class="col-md-4">{{ x.Country }}</div>
-	<div class="col-md-4">{{ x.City }}</div>
-  </div>
-</div>
 
-<script>
-	var app = angular.module('myApp', []);
-	app.controller('customersCtrl', function($scope, $http) {
-		$http.get("https://www.w3schools.com/angular/customers.php")
-		.then(function (response) {
-			$scope.names = response.data.records;
-			console.log(response);
-		});
-});
-</script>
 
-<br/><br/>
-
-I made a change on 12/4 
-
+	<div id="cssAddText">
+		a change on
+	</div>
 
 </body>
 </html>

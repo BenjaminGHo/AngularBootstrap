@@ -1,6 +1,15 @@
 .cssOdd {
   background-color: #EEE;
 }
+
 .cssEven {
   background-color: #DDD;
+}
+
+#cssAddText::before{
+	content: "I made"
+}
+
+#cssAddText::after {
+	content: "12/5"
 }
