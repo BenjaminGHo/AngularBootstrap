@@ -26,20 +26,30 @@
 	}
 }
 
-.row {
-	margin: 10px;
-	padding: 5px;
-	border-radius: 5px;
-	color: #FFF;
+.row .header {
+	text-transform: capitalize;
+	border:solid 1px black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+	border-radius: 6px;
+	height: 60px;
 }
 
+/*
+[class^='col-md'] {
+	background-color: #EEE;
+	margin: 1px;
+}*/
+
+/*
 .cssOdd {
   background-color: #0275d8;
 }
 
 .cssEven {
   background-color: #cdbfe3;
-}
+}*/
 
 a:link, a:active, a:visited, a:hover{
 	color: #FFF;
@@ -52,4 +62,4 @@ a:link, a:active, a:visited, a:hover{
 
 #cssAddText::after {
 	content: "12/5"
-} 
+}q

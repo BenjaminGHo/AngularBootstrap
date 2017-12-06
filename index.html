@@ -45,13 +45,30 @@
 			<h1>NFL Games This Week</h1>
 			
 				<div ng-controller="nflCtrl"> 
-					<div class="row" ng-repeat="x in teams" ng-class-odd="'cssOdd'" ng-class-even="'cssEven'">
-						<div class="col-md-3">{{ x.homeTeamName }}</div>
-						<div class="col-md-3">VS</div>
-						<div class="col-md-3">{{ x.visitTeamName }}</div>
-						<div class="col-md-3"><a href="http://www.nfl.com/liveupdate/game-center/{{ x.eid }}/{{ x.eid }}_gtd.json" target="_blank">JSON</a></div>
-					</div>
-				</div>
+					<div class="row" ng-repeat="x in games" ng-class-odd="'cssOdd'" ng-class-even="'cssEven'">
+						<div class="col-md-3">
+                            <div class="header">
+                                {{ x.homeTeamName }}
+                            </div>
+                        </div>
+						<div class="col-md-1">
+                            <div class="header">
+                                VS
+                            </div>
+						</div>
+						<div class="col-md-3">
+                            <div class="header">
+                                {{ x.visitTeamName }}
+                            </div>
+                        </div>
+						<div class="col-md-3">
+                            <div class="header">
+                                <button ng-click="getScoreByEID(x.eid)" class="btn btn-success">Show final score</button>
+                            </div>
+                        </div>
+                        <div class="col-md-2"><div class="header">{{ x.finalScore }}</div></div>
+                    </div>
+                </div>
 			
 			<div id="cssAddText">
 				a change on
