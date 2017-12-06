@@ -10,22 +10,47 @@ app.controller('customersCtrl', function($scope, $http) {
 */
 
 app.controller('nflCtrl', function($scope, $http) {
+
 	$http.get("http://www.nfl.com/liveupdate/scorestrip/ss.xml")
 	.then(function (response) {
 		
 		var jsonList = [];
-		var team, xmlDoc;
+		var game, xmlDoc;
 		
 		xmlDoc = $.parseXML(response.data);
 		$stringToXMLObject = $(xmlDoc);
 		$stringToXMLObject.find("ss").find("gms").find("g").each(function()
 		{
-			team = {homeTeamName: $(this).attr("hnn"), visitTeamName: $(this).attr("vnn"), eid: $(this).attr("eid")};
-			jsonList.push(team);
+			var homeTeamName =  $(this).attr("hnn");
+			var visitTeamName =  $(this).attr("vnn");
+			var eid = $(this).attr("eid");
+			
+			game = {homeTeamName: homeTeamName, visitTeamName: visitTeamName, eid: eid};
+			jsonList.push(game);
 		})
 
-		$scope.teams = jsonList;
+		$scope.games = jsonList;
 	})
 	.catch(function(data) {
 	});
+
+
+	$scope.getScoreByEID = function(eid) {
+		$http.get("http://www.nfl.com/liveupdate/game-center/" + eid + "/" + eid + "_gtd.json")
+		.then(function (response) {
+
+			var gameData = response.data[eid];
+
+			$.each($scope.games, function(i,v)
+			{
+				if ($scope.games[i]["eid"] == eid) {
+					var homeScoreT = gameData["home"]["score"].T;
+					var awayScoreT = gameData["away"]["score"].T; 					
+					$scope.games[i]["finalScore"] = homeScoreT + " - " + awayScoreT;
+				}
+			})
+		})
+
+	};
+
 });
