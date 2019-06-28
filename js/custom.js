@@ -23,9 +23,10 @@ app.controller('nflCtrl', function($scope, $http) {
 		{
 			var homeTeamName =  $(this).attr("hnn");
 			var visitTeamName =  $(this).attr("vnn");
+			var gameTime =  $(this).attr("t");
 			var eid = $(this).attr("eid");
 			
-			game = {homeTeamName: homeTeamName, visitTeamName: visitTeamName, eid: eid};
+			game = {homeTeamName: homeTeamName, visitTeamName: visitTeamName, gameTime: gameTime, eid: eid};
 			jsonList.push(game);
 		})
 
