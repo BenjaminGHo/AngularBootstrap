@@ -36,21 +36,6 @@
 	height: 60px;
 }
 
-/*
-[class^='col-md'] {
-	background-color: #EEE;
-	margin: 1px;
-}*/
-
-/*
-.cssOdd {
-  background-color: #0275d8;
-}
-
-.cssEven {
-  background-color: #cdbfe3;
-}*/
-
 a:link, a:active, a:visited, a:hover{
 	color: #FFF;
 	text-decoration: underline;
