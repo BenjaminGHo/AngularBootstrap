@@ -11,25 +11,30 @@ app.controller('customersCtrl', function($scope, $http) {
 
 app.controller('nflCtrl', function($scope, $http) {
 
-	$http.get("http://www.nfl.com/liveupdate/scorestrip/ss.xml")
+	$http.get("http://www.nfl.com/liveupdate/scorestrip/ss.json")
 	.then(function (response) {
-		
+		var games = response.data.gms;
 		var jsonList = [];
-		var game, xmlDoc;
-		
-		xmlDoc = $.parseXML(response.data);
-		$stringToXMLObject = $(xmlDoc);
-		$stringToXMLObject.find("ss").find("gms").find("g").each(function()
-		{
-			var homeTeamName =  $(this).attr("hnn");
-			var visitTeamName =  $(this).attr("vnn");
-			var gameTime =  $(this).attr("t");
-			var eid = $(this).attr("eid");
-			
-			game = {homeTeamName: homeTeamName, visitTeamName: visitTeamName, gameTime: gameTime, eid: eid};
-			jsonList.push(game);
-		})
 
+		angular.forEach(games, function(value, key) {
+			
+			// parent game
+			var individualGame = value;
+
+			// retrieve game information
+			var homeTeamName =  individualGame.hnn;
+			var visitTeamName = individualGame.vnn;
+			var gameTime =  individualGame.t;
+			var eid = individualGame.eid;
+			
+			// assemble game information
+			var gamePush = {homeTeamName: homeTeamName, visitTeamName: visitTeamName, gameTime: gameTime, eid: eid};
+
+			// push the results to a list
+			jsonList.push(gamePush);
+						
+		});
+	
 		$scope.games = jsonList;
 	})
 	.catch(function(data) {
@@ -51,6 +56,9 @@ app.controller('nflCtrl', function($scope, $http) {
 				}
 			})
 		})
+		.catch(function(data) {
+			$scope.games[0]["finalScore"] = 'Information not available'
+		});
 
 	};
 
